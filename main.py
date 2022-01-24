@@ -66,6 +66,7 @@ def what_weather(city):
         return response.text
     else:
         return '<ошибка на сервере погоды>'
+    return process_friend()
 
 
 def process_anfisa(query):
@@ -94,7 +95,7 @@ def process_friend(name, query):
             time = what_time(city)
             return f'Там сейчас {time}'
         elif query == 'как погода?':
-            return city
+            return what_weather(city)
         else:
             return '<неизвестный запрос>'
     else:
